@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-tasks"></i> Task Manager</h1>
+            <button id="addTaskBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Task
+            </button>
+        </header>
+
+        <!-- Task Form Modal -->
+        <div id="taskModal" class="modal">
+            <div class="modal-content">
+                <h2>Add New Task</h2>
+                <form id="taskForm">
+                    <div class="form-group">
+                        <label><i class="fas fa-pencil-alt"></i> Task Title</label>
+                        <input type="text" id="taskTitle" required placeholder="Enter your task here...">
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-flag"></i> Priority Level</label>
+                        <select id="taskPriority" required>
+                            <option value="low">Low Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> Due Date</label>
+                        <input type="datetime-local" id="taskDueDate" required>
+                        <small>Format: YYYY-MM-DD HH:MM</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Add Task</button>
+                        <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Upcoming Tasks Alert -->
+        <div id="upcomingTasks" class="alert hidden">
+            <i class="fas fa-clock"></i>
+            <div class="alert-content">
+                <h3>Upcoming Tasks</h3>
+                <ul id="upcomingTasksList"></ul>
+            </div>
+        </div>
+
+        <!-- Main Task List -->
+        <div id="taskList" class="task-list">
+            <!-- Tasks will be added here dynamically -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+            <i class="fas fa-clipboard-list"></i>
+            <h3>No tasks yet</h3>
+            <p>Add your first task using the form above to get started.</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
